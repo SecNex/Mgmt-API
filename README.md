@@ -3,9 +3,9 @@
 </h1>
 
 <div align="center">
-    <img src="https://img.shields.io/github/downloads/secnex/DNS-Server/total?style=for-the-badge" />
-    <img src="https://img.shields.io/github/last-commit/secnex/DNS-Server?color=%231BCBF2&style=for-the-badge" />
-    <img src="https://img.shields.io/github/issues/secnex/DNS-Server?style=for-the-badge" />
+    <img src="https://img.shields.io/github/downloads/secnex/Mgmt-API/total?style=for-the-badge" />
+    <img src="https://img.shields.io/github/last-commit/secnex/Mgmt-API?color=%231BCBF2&style=for-the-badge" />
+    <img src="https://img.shields.io/github/issues/secnex/Mgmt-API?style=for-the-badge" />
 </div>
 
 <br />
