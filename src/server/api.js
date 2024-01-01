@@ -8,6 +8,8 @@ const models = require("../models");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/api", require("../routes"));
+
 app.all("*", async (req, res) => {
     return await res.status(404).json({
         status: "error",
