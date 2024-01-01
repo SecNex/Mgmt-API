@@ -19,15 +19,15 @@ services:
     networks:
       - default
 
-  mgmt-api:
-    image: ghcr.io/secnex/mgmt-api:latest
-    restart: always
-    ports:
-      - 8080:8080
-    networks:
-      - default
-    depends_on:
-      - mgmt-db
+  # mgmt-api:
+  #   image: ghcr.io/secnex/mgmt-api:latest
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
+  #   networks:
+  #     - default
+  #   depends_on:
+  #     - mgmt-db
 
   db-admin:
     image: dpage/pgadmin4
