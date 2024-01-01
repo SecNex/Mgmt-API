@@ -1,0 +1,35 @@
+# Docker compose to create a stack of mgmt
+version: "3.7"
+networks:
+  default:
+    name: secnex
+
+services:
+  mgmt-db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: secnex
+    ports:
+      - 5432:5432
+    volumes:
+      - ./database/mgmt.db:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - default
+
+  dbadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@secnex.io"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - 5050:80
+    volumes:
+      - ./data:/var/lib/pgadmin
+    networks:
+      - default
+    depends_on:
+      - mgmt-db

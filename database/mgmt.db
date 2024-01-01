@@ -1,0 +1,8 @@
+-- DNS Schema
+CREATE SCHEMA IF NOT EXISTS dns;
+
+-- Admin Schema
+CREATE SCHEMA IF NOT EXISTS admin;
+
+-- Core Schema
+CREATE SCHEMA IF NOT EXISTS core;
