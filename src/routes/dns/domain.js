@@ -73,4 +73,26 @@ router.get("/:id", async (req, res) => {
     });
 });
 
+router.delete("/:id", async (req, res) => {
+    const domain = await DNS.Domain.findByPk(req.params.id);
+    if (!domain) {
+        return await res.status(404).json({
+            status: "error",
+            message: "Domain not found!",
+        });
+    }
+    try {
+        await domain.destroy();
+    } catch (error) {
+        return await res.status(500).json({
+            status: "error",
+            message: "Internal server error!",
+        });
+    }
+    return await res.status(200).json({
+        status: "success",
+        message: "Successfully deleted domain.",
+    });
+});
+
 module.exports = router;
