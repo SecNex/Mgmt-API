@@ -6,3 +6,6 @@ CREATE SCHEMA IF NOT EXISTS admin;
 
 -- Core Schema
 CREATE SCHEMA IF NOT EXISTS core;
+
+-- Auth Schema
+CREATE SCHEMA IF NOT EXISTS auth;
