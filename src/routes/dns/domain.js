@@ -33,6 +33,7 @@ router.post("/", async (req, res) => {
             description,
         });
     } catch (error) {
+        console.log(error);
         if (error.name === "SequelizeUniqueConstraintError") {
             return await res.status(409).json({
                 status: "error",

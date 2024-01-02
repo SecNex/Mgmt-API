@@ -27,7 +27,11 @@ const Domain = db.mgmt.define("domain", {
         type: DataTypes.ENUM,
         values: ["created", "active", "inactive", "deleted", "locked"],
         defaultValue: "created",
-    }
+    },
+    organizationId: {
+        type: DataTypes.UUID,
+        allowNull: false,
+    },
 }, {
     timestamps: true,
     paranoid: true,
