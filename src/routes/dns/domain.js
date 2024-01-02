@@ -18,6 +18,39 @@ router.get("/", async (req, res) => {
     });
 });
 
+router.post("/", async (req, res) => {
+    const { name, description } = req.body;
+    var domain;
+    if (!name || !description) {
+        return await res.status(400).json({
+            status: "error",
+            message: "Missing required fields!",
+        });
+    }
+    try {
+        domain = await DNS.Domain.create({
+            name,
+            description,
+        });
+    } catch (error) {
+        if (error.name === "SequelizeUniqueConstraintError") {
+            return await res.status(409).json({
+                status: "error",
+                message: "Domain already exists!",
+            });
+        }
+        return await res.status(500).json({
+            status: "error",
+            message: "Internal server error!",
+        });
+    }
+    return await res.status(201).json({
+        status: "success",
+        message: "Successfully created domain.",
+        data: domain,
+    });
+});
+
 router.get("/:id", async (req, res) => {
     const domain = await DNS.Domain.findByPk(req.params.id, {
         include: [

@@ -16,7 +16,7 @@ const Record = db.mgmt.define("record", {
         type: DataTypes.STRING,
         allowNull: false
     },
-    type: {
+    recordType: {
         type: DataTypes.ENUM,
         values: ["A", "AAAA", "CNAME", "MX", "NS", "TXT", "SRV", "PTR"],
         allowNull: false
@@ -26,8 +26,8 @@ const Record = db.mgmt.define("record", {
         allowNull: false,
         defaultValue: 300
     },
-    data: {
-        type: DataTypes.JSONB,
+    value: {
+        type: DataTypes.STRING,
         allowNull: false
     },
 }, {
